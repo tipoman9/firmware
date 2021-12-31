@@ -166,3 +166,4 @@ Thank you.
 [fwXM510]: https://github.com/OpenIPC/firmware/releases/download/latest/openipc.xm510-br.tgz
 [fwXM530]: https://github.com/OpenIPC/firmware/releases/download/latest/openipc.xm530-br.tgz
 [fwXM550]: https://github.com/OpenIPC/firmware/releases/download/latest/openipc.xm550-br.tgz
+
