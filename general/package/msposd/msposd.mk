@@ -23,16 +23,18 @@ else
 endif
 
 define MSPOSD_BUILD_CMDS
-	$(MAKE) CC=$(TARGET_CC) DRV=$(MSPOSD_OSDRV)/files/lib $(MSPOSD_FAMILY) OUTPUT=$(@D) -C $(@D)
+	$(MAKE) CC=$(TARGET_CC) TOOLCHAIN=$(STAGING_DIR) DRV=$(MSPOSD_OSDRV)files/lib $(MSPOSD_FAMILY) OUTPUT=$(@D)/msposd -C $(@D)
 endef
 
 define MSPOSD_INSTALL_TARGET_CMDS
 	$(INSTALL) -m 755 -d $(TARGET_DIR)/usr/bin
 	$(INSTALL) -m 755 -t $(TARGET_DIR)/usr/bin $(@D)/msposd
+	$(INSTALL) -m 755 -t $(TARGET_DIR)/usr/bin $(@D)/safeboot.sh
 
 	$(INSTALL) -m 755 -d $(TARGET_DIR)/usr/share/fonts
 	$(INSTALL) -m 644 -t $(TARGET_DIR)/usr/share/fonts $(@D)/fonts/common/font.png
 	$(INSTALL) -m 644 -t $(TARGET_DIR)/usr/share/fonts $(@D)/fonts/common/font_hd.png
+	$(INSTALL) -m 644 -t $(TARGET_DIR)/etc $(@D)/vtxmenu.ini
 endef
 
 $(eval $(generic-package))
