@@ -5,8 +5,7 @@
 ################################################################################
 
 MSPOSD_SITE = $(call github,openipc,msposd,$(MSPOSD_VERSION))
-#MSPOSD_VERSION = HEAD
-MSPOSD_VERSION = 2298981b32dce8cc92b5198703117cd515c30fca
+MSPOSD_VERSION = HEAD
 
 ifeq ($(OPENIPC_SOC_FAMILY),gk7205v200)
 	MSPOSD_FAMILY = goke
@@ -32,8 +31,14 @@ define MSPOSD_INSTALL_TARGET_CMDS
 	$(INSTALL) -m 755 -t $(TARGET_DIR)/usr/bin $(@D)/safeboot.sh
 
 	$(INSTALL) -m 755 -d $(TARGET_DIR)/usr/share/fonts
-	$(INSTALL) -m 644 -t $(TARGET_DIR)/usr/share/fonts $(@D)/fonts/common/font.png
-	$(INSTALL) -m 644 -t $(TARGET_DIR)/usr/share/fonts $(@D)/fonts/common/font_hd.png
+
+	$(INSTALL) -m 644 -t $(TARGET_DIR)/usr/share/fonts $(@D)/fonts/font_inav.png
+	$(INSTALL) -m 644 -t $(TARGET_DIR)/usr/share/fonts $(@D)/fonts/font_inav_hd.png
+	$(INSTALL) -m 644 -t $(TARGET_DIR)/usr/share/fonts $(@D)/fonts/font_btfl.png
+	$(INSTALL) -m 644 -t $(TARGET_DIR)/usr/share/fonts $(@D)/fonts/font_btfl_hd.png
+	$(INSTALL) -m 644 -t $(TARGET_DIR)/usr/share/fonts $(@D)/fonts/font_ardu.png
+	$(INSTALL) -m 644 -t $(TARGET_DIR)/usr/share/fonts $(@D)/fonts/font_ardu_hd.png
+
 	$(INSTALL) -m 644 -t $(TARGET_DIR)/etc $(@D)/vtxmenu.ini
 endef
 
