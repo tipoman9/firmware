@@ -1,0 +1,280 @@
+diff --git a/br-ext-chip-goke/Config.in b/br-ext-chip-goke/Config.in
+index 274514da..9fc6749a 100644
+--- a/br-ext-chip-goke/Config.in
++++ b/br-ext-chip-goke/Config.in
+@@ -28,21 +28,21 @@ source "$BR2_EXTERNAL_GOKE_PATH/package/libwebsockets-openipc/Config.in"
+ source "$BR2_EXTERNAL_GOKE_PATH/package/linux-firmware-openipc/Config.in"
+ source "$BR2_EXTERNAL_GOKE_PATH/package/majestic-fonts/Config.in"
+ source "$BR2_EXTERNAL_GOKE_PATH/package/majestic/Config.in"
+-source "$BR2_EXTERNAL_GOKE_PATH/package/mavfwd/Config.in"
+-source "$BR2_EXTERNAL_GOKE_PATH/package/mavlink-router/Config.in"
+-source "$BR2_EXTERNAL_GOKE_PATH/package/mbedtls-openipc/Config.in"
+-source "$BR2_EXTERNAL_GOKE_PATH/package/microbe-web/Config.in"
+-source "$BR2_EXTERNAL_GOKE_PATH/package/motors/Config.in"
+-source "$BR2_EXTERNAL_GOKE_PATH/package/mt7601u-ap-openipc/Config.in"
+-source "$BR2_EXTERNAL_GOKE_PATH/package/nabto/Config.in"
+-source "$BR2_EXTERNAL_GOKE_PATH/package/node-exporter/Config.in"
+-source "$BR2_EXTERNAL_GOKE_PATH/package/opus-openipc/Config.in"
+-source "$BR2_EXTERNAL_GOKE_PATH/package/quirc-openipc/Config.in"
+-source "$BR2_EXTERNAL_GOKE_PATH/package/rtl8188fu-openipc/Config.in"
+-source "$BR2_EXTERNAL_GOKE_PATH/package/rtl8812au-openipc/Config.in"
+-source "$BR2_EXTERNAL_GOKE_PATH/package/uacme-openipc/Config.in"
+-source "$BR2_EXTERNAL_GOKE_PATH/package/vtund-openipc/Config.in"
+-source "$BR2_EXTERNAL_GOKE_PATH/package/wifibroadcast/Config.in"
+-source "$BR2_EXTERNAL_GOKE_PATH/package/yaml-cli/Config.in"
+-source "$BR2_EXTERNAL_GOKE_PATH/package/xmdp/Config.in"
+-source "$BR2_EXTERNAL_GOKE_PATH/package/zerotier-one/Config.in"
++source "$BR2_EXTERNAL_INGENIC_PATH/package/mavfwd/Config.in"
++source "$BR2_EXTERNAL_INGENIC_PATH/package/mavlink-router/Config.in"
++source "$BR2_EXTERNAL_INGENIC_PATH/package/mbedtls-openipc/Config.in"
++source "$BR2_EXTERNAL_INGENIC_PATH/package/microbe-web/Config.in"
++source "$BR2_EXTERNAL_INGENIC_PATH/package/microsnander/Config.in"
++source "$BR2_EXTERNAL_INGENIC_PATH/package/motors/Config.in"
++source "$BR2_EXTERNAL_INGENIC_PATH/package/nabto/Config.in"
++source "$BR2_EXTERNAL_INGENIC_PATH/package/node-exporter/Config.in"
++source "$BR2_EXTERNAL_INGENIC_PATH/package/opus-openipc/Config.in"
++source "$BR2_EXTERNAL_INGENIC_PATH/package/quirc-openipc/Config.in"
++source "$BR2_EXTERNAL_INGENIC_PATH/package/rtl8188fu-openipc/Config.in"
++source "$BR2_EXTERNAL_INGENIC_PATH/package/rtl8812au-openipc/Config.in"
++source "$BR2_EXTERNAL_INGENIC_PATH/package/uacme-openipc/Config.in"
++source "$BR2_EXTERNAL_INGENIC_PATH/package/vtund-openipc/Config.in"
++source "$BR2_EXTERNAL_INGENIC_PATH/package/wifibroadcast/Config.in"
++source "$BR2_EXTERNAL_INGENIC_PATH/package/xmdp/Config.in"
++source "$BR2_EXTERNAL_INGENIC_PATH/package/yaml-cli/Config.in"
++source "$BR2_EXTERNAL_INGENIC_PATH/package/zerotier-one/Config.in"
+diff --git a/br-ext-chip-ingenic/Config.in b/br-ext-chip-ingenic/Config.in
+index 53e50127..7cfaf7fc 100644
+--- a/br-ext-chip-ingenic/Config.in
++++ b/br-ext-chip-ingenic/Config.in
+@@ -24,6 +24,7 @@ source "$BR2_EXTERNAL_INGENIC_PATH/package/linux-firmware-openipc/Config.in"
+ source "$BR2_EXTERNAL_INGENIC_PATH/package/majestic-fonts/Config.in"
+ source "$BR2_EXTERNAL_INGENIC_PATH/package/majestic/Config.in"
+ source "$BR2_EXTERNAL_INGENIC_PATH/package/mavfwd/Config.in"
++source "$BR2_EXTERNAL_INGENIC_PATH/package/mavlink-router/Config.in"
+ source "$BR2_EXTERNAL_INGENIC_PATH/package/mbedtls-openipc/Config.in"
+ source "$BR2_EXTERNAL_INGENIC_PATH/package/microbe-web/Config.in"
+ source "$BR2_EXTERNAL_INGENIC_PATH/package/microsnander/Config.in"
+@@ -33,8 +34,10 @@ source "$BR2_EXTERNAL_INGENIC_PATH/package/node-exporter/Config.in"
+ source "$BR2_EXTERNAL_INGENIC_PATH/package/opus-openipc/Config.in"
+ source "$BR2_EXTERNAL_INGENIC_PATH/package/quirc-openipc/Config.in"
+ source "$BR2_EXTERNAL_INGENIC_PATH/package/rtl8188fu-openipc/Config.in"
++source "$BR2_EXTERNAL_INGENIC_PATH/package/rtl8812au-openipc/Config.in"
+ source "$BR2_EXTERNAL_INGENIC_PATH/package/uacme-openipc/Config.in"
+ source "$BR2_EXTERNAL_INGENIC_PATH/package/vtund-openipc/Config.in"
++source "$BR2_EXTERNAL_INGENIC_PATH/package/wifibroadcast/Config.in"
+ source "$BR2_EXTERNAL_INGENIC_PATH/package/xmdp/Config.in"
+ source "$BR2_EXTERNAL_INGENIC_PATH/package/yaml-cli/Config.in"
+ source "$BR2_EXTERNAL_INGENIC_PATH/package/zerotier-one/Config.in"
+diff --git a/br-ext-chip-ingenic/board/t31/kernel/t31.generic.config b/br-ext-chip-ingenic/board/t31/kernel/t31.generic.config
+index 40b02506..bc4e4775 100644
+--- a/br-ext-chip-ingenic/board/t31/kernel/t31.generic.config
++++ b/br-ext-chip-ingenic/board/t31/kernel/t31.generic.config
+@@ -840,14 +840,21 @@ CONFIG_WLAN=y
+ # CONFIG_RTL8188EU is not set
+ # CONFIG_MAC80211_HWSIM is not set
+ # CONFIG_WIFI_CONTROL_FUNC is not set
+-# CONFIG_ATH_CARDS is not set
++CONFIG_ATH9K=m
++CONFIG_ATH_CARDS=m
++CONFIG_ATH9K_HTC=m
++CONFIG_ATH_COMMON=m
++CONFIG_ATH9K_HW=m
++CONFIG_ATH9K_COMMON=m
++# CONFIG_WLAN_VENDOR_ATH=y
++# CONFIG_ATH9K_HTC = m
+ # CONFIG_B43 is not set
+ # CONFIG_B43LEGACY is not set
+ # CONFIG_BRCMFMAC is not set
+ # CONFIG_HOSTAP is not set
+ # CONFIG_LIBERTAS is not set
+ # CONFIG_P54_COMMON is not set
+-# CONFIG_RT2X00 is not set
++CONFIG_RT2X00=m
+ CONFIG_RTLWIFI=m
+ CONFIG_RTLWIFI_DEBUG=y
+ CONFIG_RTL8192CU=m
+diff --git a/br-ext-chip-ingenic/configs/t31_lite_defconfig b/br-ext-chip-ingenic/configs/t31_lite_defconfig
+index 538a909f..133f1454 100644
+--- a/br-ext-chip-ingenic/configs/t31_lite_defconfig
++++ b/br-ext-chip-ingenic/configs/t31_lite_defconfig
+@@ -55,11 +55,11 @@ BR2_PACKAGE_DROPBEAR_OPENIPC=y
+ # BR2_PACKAGE_FDK_AAC_OPENIPC is not set
+ BR2_PACKAGE_FWPRINTENV_OPENIPC=y
+ BR2_PACKAGE_INGENIC_OSDRV_T31=y
+-BR2_PACKAGE_HASERL=y
++# BR2_PACKAGE_HASERL=y
+ # BR2_PACKAGE_HISI_GPIO is not set
+ BR2_PACKAGE_IPCTOOL=y
+ BR2_PACKAGE_JSON_C=y
+-BR2_PACKAGE_JSONFILTER=y
++# BR2_PACKAGE_JSONFILTER=y
+ BR2_PACKAGE_LIBCURL_OPENIPC=y
+ BR2_PACKAGE_LIBCURL_OPENIPC_CURL=y
+ # BR2_PACKAGE_LIBCURL_OPENIPC_VERBOSE is not set
+@@ -69,40 +69,59 @@ BR2_PACKAGE_LIBCURL_OPENIPC_CURL=y
+ BR2_PACKAGE_LIBCURL_OPENIPC_MBEDTLS=y
+ BR2_PACKAGE_LIBEVENT_OPENIPC=y
+ BR2_PACKAGE_LIBEVENT_OPENIPC_REMOVE_PYSCRIPT=y
+-BR2_PACKAGE_LIBOGG_OPENIPC=y
+ BR2_PACKAGE_LIBYAML=y
+-BR2_PACKAGE_MAJESTIC_FONTS=y
++# BR2_PACKAGE_MAJESTIC_FONTS=y
+ BR2_PACKAGE_MAJESTIC=y
+ BR2_PACKAGE_MBEDTLS_OPENIPC=y
+ # BR2_PACKAGE_MBEDTLS_OPENIPC_PROGRAMS is not set
+ # BR2_PACKAGE_MBEDTLS_OPENIPC_COMPRESSION is not set
+-BR2_PACKAGE_MICROBE_WEB=y
++# BR2_PACKAGE_MICROBE_WEB=y
+ # BR2_PACKAGE_MINI_SNMPD is not set
+-BR2_PACKAGE_MOTORS=y
+-BR2_PACKAGE_OPUS_OPENIPC=y
+-BR2_PACKAGE_OPUS_OPENIPC_FIXED_POINT=y
++# BR2_PACKAGE_MOTORS is not set
+ # BR2_PACKAGE_SSHPASS is not set
+-BR2_PACKAGE_UACME_OPENIPC=y
+-BR2_PACKAGE_VTUND_OPENIPC=y
++# BR2_PACKAGE_VTUND_OPENIPC=y
+ BR2_PACKAGE_YAML_CLI=y
+-BR2_PACKAGE_QUIRC_OPENIPC=y
++# BR2_PACKAGE_QUIRC_OPENIPC=y
+ 
+ # WiFi
+ BR2_PACKAGE_WIRELESS_TOOLS=y
+-BR2_PACKAGE_WPA_SUPPLICANT=y
+-BR2_PACKAGE_WPA_SUPPLICANT_CLI=y
+-BR2_PACKAGE_WPA_SUPPLICANT_NL80211=y
+-BR2_PACKAGE_WPA_SUPPLICANT_PASSPHRASE=y
++									   
++# BR2_PACKAGE_WPA_SUPPLICANT=y
++# BR2_PACKAGE_WPA_SUPPLICANT_CLI=y
++# BR2_PACKAGE_WPA_SUPPLICANT_NL80211=y
++# BR2_PACKAGE_WPA_SUPPLICANT_PASSPHRASE=y
+ BR2_PACKAGE_LINUX_FIRMWARE_OPENIPC=y
+-BR2_PACKAGE_LINUX_FIRMWARE_OPENIPC_MT7601U=y
++# BR2_PACKAGE_LINUX_FIRMWARE_OPENIPC_MT7601U=y
+ # BR2_PACKAGE_RTL8188EU is not set
++BR2_PACKAGE_LINUX_FIRMWARE_OPENIPC_ATHEROS_9271=y
++#BR2_PACKAGE_RTL8812AU_OPENIPC=y												 
++
++# FPV
++BR2_PACKAGE_WIFIBROADCAST=y
++#BR2_PACKAGE_MAVLINK_ROUTER=y	   
++BR2_PACKAGE_MAVFWD=y
++
+ 
+ # WIREGUARD
+-BR2_PACKAGE_WIREGUARD_LINUX_COMPAT=y
+-BR2_PACKAGE_WIREGUARD_TOOLS=y
++# BR2_PACKAGE_WIREGUARD_LINUX_COMPAT=y
++# BR2_PACKAGE_WIREGUARD_TOOLS=y
++
++# ZEROTIER					  
++# BR2_PACKAGE_ZEROTIER_ONE=y
++
++# NABTO
++# BR2_PACKAGE_NABTO is not set
+ 
+ # DEBUG
+ BR2_PACKAGE_HOST_GDB=y
+ BR2_PACKAGE_GDB=y
+ 
+-BR2_PACKAGE_ZLIB=y
++#
++# Compression and decompression
++#
++BR2_PACKAGE_LIBZIP=y
++										  
++										  
++										  
++										  
++										  
+diff --git a/general/package/all-patches/wireguard-linux-compat/remove_fallthrough.patch b/general/package/all-patches/wireguard-linux-compat/remove_fallthrough.patch
+deleted file mode 100644
+index 4a1c8a78..00000000
+--- a/general/package/all-patches/wireguard-linux-compat/remove_fallthrough.patch
++++ /dev/null
+@@ -1,84 +0,0 @@
+---- a/src/compat/siphash/siphash.c	2022-10-13 13:32:56.761640510 +0300
+-+++ b/src/compat/siphash/siphash.c	2022-10-13 13:33:41.061624482 +0300
+-@@ -77,11 +77,11 @@
+- 						  bytemask_from_count(left)));
+- #else
+- 	switch (left) {
+--	case 7: b |= ((u64)end[6]) << 48; fallthrough;
+--	case 6: b |= ((u64)end[5]) << 40; fallthrough;
+--	case 5: b |= ((u64)end[4]) << 32; fallthrough;
+-+	case 7: b |= ((u64)end[6]) << 48;
+-+	case 6: b |= ((u64)end[5]) << 40;
+-+	case 5: b |= ((u64)end[4]) << 32;
+- 	case 4: b |= le32_to_cpup(data); break;
+--	case 3: b |= ((u64)end[2]) << 16; fallthrough;
+-+	case 3: b |= ((u64)end[2]) << 16;
+- 	case 2: b |= le16_to_cpup(data); break;
+- 	case 1: b |= end[0];
+- 	}
+-@@ -109,11 +109,11 @@
+- 						  bytemask_from_count(left)));
+- #else
+- 	switch (left) {
+--	case 7: b |= ((u64)end[6]) << 48; fallthrough;
+--	case 6: b |= ((u64)end[5]) << 40; fallthrough;
+--	case 5: b |= ((u64)end[4]) << 32; fallthrough;
+-+	case 7: b |= ((u64)end[6]) << 48;
+-+	case 6: b |= ((u64)end[5]) << 40;
+-+	case 5: b |= ((u64)end[4]) << 32;
+- 	case 4: b |= get_unaligned_le32(end); break;
+--	case 3: b |= ((u64)end[2]) << 16; fallthrough;
+-+	case 3: b |= ((u64)end[2]) << 16;
+- 	case 2: b |= get_unaligned_le16(end); break;
+- 	case 1: b |= end[0];
+- 	}
+-@@ -269,11 +269,11 @@
+- 						  bytemask_from_count(left)));
+- #else
+- 	switch (left) {
+--	case 7: b |= ((u64)end[6]) << 48; fallthrough;
+--	case 6: b |= ((u64)end[5]) << 40; fallthrough;
+--	case 5: b |= ((u64)end[4]) << 32; fallthrough;
+-+	case 7: b |= ((u64)end[6]) << 48;
+-+	case 6: b |= ((u64)end[5]) << 40;
+-+	case 5: b |= ((u64)end[4]) << 32;
+- 	case 4: b |= le32_to_cpup(data); break;
+--	case 3: b |= ((u64)end[2]) << 16; fallthrough;
+-+	case 3: b |= ((u64)end[2]) << 16;
+- 	case 2: b |= le16_to_cpup(data); break;
+- 	case 1: b |= end[0];
+- 	}
+-@@ -301,11 +301,11 @@
+- 						  bytemask_from_count(left)));
+- #else
+- 	switch (left) {
+--	case 7: b |= ((u64)end[6]) << 48; fallthrough;
+--	case 6: b |= ((u64)end[5]) << 40; fallthrough;
+--	case 5: b |= ((u64)end[4]) << 32; fallthrough;
+-+	case 7: b |= ((u64)end[6]) << 48;
+-+	case 6: b |= ((u64)end[5]) << 40;
+-+	case 5: b |= ((u64)end[4]) << 32;
+- 	case 4: b |= get_unaligned_le32(end); break;
+--	case 3: b |= ((u64)end[2]) << 16; fallthrough;
+-+	case 3: b |= ((u64)end[2]) << 16;
+- 	case 2: b |= get_unaligned_le16(end); break;
+- 	case 1: b |= end[0];
+- 	}
+-@@ -426,7 +426,7 @@
+- 		v0 ^= m;
+- 	}
+- 	switch (left) {
+--	case 3: b |= ((u32)end[2]) << 16; fallthrough;
+-+	case 3: b |= ((u32)end[2]) << 16;
+- 	case 2: b |= le16_to_cpup(data); break;
+- 	case 1: b |= end[0];
+- 	}
+-@@ -448,7 +448,7 @@
+- 		v0 ^= m;
+- 	}
+- 	switch (left) {
+--	case 3: b |= ((u32)end[2]) << 16; fallthrough;
+-+	case 3: b |= ((u32)end[2]) << 16;
+- 	case 2: b |= get_unaligned_le16(end); break;
+- 	case 1: b |= end[0];
+- 	}
